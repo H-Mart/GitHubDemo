@@ -1,4 +1,5 @@
 <html>
+<<<<<<< Updated upstream
   <head>
   </head>
   <body>
@@ -8,3 +9,47 @@
     </p>
   </body>
 </html>
+=======
+
+<head>
+</head>
+
+<body>
+  <script>function* test() {
+      for (i = 0; i < 256; i+=20) {
+        for (j = 0; j < 256; j+=10) {
+          for (k = 0; k < 256; k+=10) {
+            // document.querySelector('body').style = `background-color: rgb(${i}, ${j}, ${k});`
+            yield `background-color: rgb(${i}, ${j}, ${k});`;
+            if (k >= 255) k = 0;
+          }
+          if (j >= 255) j = 0;
+        }
+        if (i >= 255) i = 0;
+
+      }
+    }
+    var gen = null;
+    function test2() {
+      if (!gen) gen = test();
+      val = gen.next().value;
+      console.log(val);
+      document.querySelector('body').style = val;
+    }
+    (function run() {
+      setInterval(test2, 20);
+    })()</script>
+  <h1>Hello World!</h1>
+  <p>
+    This is the file, with a list added!
+  </p>
+  <h3>Some drinks:</h3>
+  <ul>
+    <li>Coffee</li>
+    <li>Tea</li>
+    <li>Milk</li>
+  </ul>
+</body>
+
+</html>
+>>>>>>> Stashed changes
